@@ -1,18 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SiteController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/berita/selalu-sehat/{berita}', [SiteController::class, 'bacaBerita'])->name('site.baca-berita');
+
+Route::get('/home', [DashboardController::class, 'index'])->name('home');
+
+require __DIR__ . '/berita.php';
+require __DIR__ . '/kegiatan.php';
+require __DIR__ . '/bukutamu.php';
