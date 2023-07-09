@@ -22,7 +22,7 @@ class UpdateKegiatanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'thumbnail' => 'nullable|string',
+            'thumbnail' => 'nullable',
             'title' => 'required|string',
             'description' => 'nullable|string'
         ];

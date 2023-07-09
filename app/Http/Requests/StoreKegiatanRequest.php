@@ -22,7 +22,7 @@ class StoreKegiatanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'thumbnail' => 'required|string',
+            'thumbnail' => 'required',
             'title' => 'required|string',
             'description' => 'nullable|string'
         ];
