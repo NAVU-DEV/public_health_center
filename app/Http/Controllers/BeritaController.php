@@ -35,7 +35,6 @@ class BeritaController extends Controller
      */
     public function store(StoreBeritaRequest $request)
     {
-        dd('test');
         $data = $request->validated();
 
         $file = $request->file('thumbnail');

@@ -22,7 +22,7 @@ class StoreBeritaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'thumbnail' => 'required|string',
+            'thumbnail' => 'required',
             'title' => 'required|string',
             'content' => 'required|string'
         ];
