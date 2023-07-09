@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
-use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(Authenticate::class)->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
     Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
