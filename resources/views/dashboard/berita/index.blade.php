@@ -9,7 +9,10 @@
                 <div class="d-flex">
                     <form class="mb-4" method="get">
                         <div class="d-flex gap-2">
-                            <a href="{{ route('berita.create') }}" class="btn btn-success py-0 px-3"> <i class="uil uil-plus-square"></i> <span class="ps-2">Tambah Berita</span></a>
+                            <a href="{{ route('berita.create') }}" class="btn btn-success py-0 px-3">
+                                <i class="uil uil-plus-square"></i>
+                                <span class="ps-2">Tambah Berita</span>
+                            </a>
                             <div class="form-floating">
                                 <input id="find" name="find" type="text" class="form-control" placeholder="Cari Berita">
                                 <label for="find">Cari Berita</label>
@@ -33,8 +36,12 @@
                         <th>{{ $berita->title }}</th>
                         <th>
                             <div class="d-flex justify-content-center gap-2">
-                                <a href="{{ route('berita.edit', $berita) }}" class="btn btn-primary py-0 px-3"><i class="uil uil-pen"></i></a>
-                                <a class="btn btn-danger py-0 px-3" data-bs-toggle="modal" data-bs-target="#delete-promp-{{ $berita->id }}"><i class="uil uil-trash"></i></a>
+                                <a href="{{ route('berita.edit', $berita) }}" class="btn btn-primary py-0 px-3">
+                                    <i class="uil uil-pen"></i>
+                                </a>
+                                <a class="btn btn-danger py-0 px-3" data-bs-toggle="modal" data-bs-target="#delete-promp-{{ $berita->id }}">
+                                    <i class="uil uil-trash"></i>
+                                </a>
                                 @include('dashboard.berita._modal_delete', [
                                 'berita' => $berita
                                 ])
@@ -46,7 +53,7 @@
             </table>
             <div class="d-flex justify-content-end">
                 @include('components.pagination', [
-                    'data' => $semua_berita
+                'data' => $semua_berita
                 ])
             </div>
         </div>

@@ -8,7 +8,6 @@
                 <div class="shape bg-soft-primary rounded-circle rellax w-20 h-20" data-rellax-speed="1" style="top: -2rem; right: -1.9rem;"></div>
                 <figure class="rounded"><img src="{{ URL::asset('assets/img/news/' . $berita->thumbnail) }}" alt=""></figure>
             </div>
-            <!--/column -->
             <div class="col-lg-6">
                 <h2 class="display-4 mb-3">{{ $berita->title }}</h2>
 
@@ -16,7 +15,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-floating mb-4">
-                        <input id="thumbnail" type="file" name="thumbnail" value="{{ $berita->title }}" class="form-control" placeholder="Thumbnail Input">
+                        <input id="thumbnail" type="file" name="thumbnail" value="{{ $berita->thumbnail }}" class="form-control" placeholder="Thumbnail Input">
                         <label for="thumbnail">Thumbnail Input</label>
                     </div>
                     <div class="form-floating mb-4">

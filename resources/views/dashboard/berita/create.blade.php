@@ -6,9 +6,8 @@
         <div class="card">
             <div class="card-body">
                 <h3>Tambah Berita</h3>
-                <form method="post" action="{{ url('/berita') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('berita.store') }}" enctype="multipart/form-data">
                     @csrf
-                    @method('POST')
                     <div class="form-floating mb-4">
                         <input id="thumbnail" type="file" name="thumbnail" value="{{ old('thumbnail') }}" class="form-control" placeholder="Thumbnail Input">
                         <label for="thumbnail">Thumbnail Input</label>
