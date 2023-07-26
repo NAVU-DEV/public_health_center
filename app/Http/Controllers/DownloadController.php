@@ -5,23 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDownloadRequest;
 use App\Http\Requests\UpdateDownloadRequest;
 use App\Models\Download;
+use Illuminate\Http\Request;
 
 class DownloadController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $semua_download = Download::where('title', 'LIKE', '%' . $request->get('find') . '%')
+            ->paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('dashboard.download.index', [
+            'semua_download' => $semua_download
+        ]);
     }
 
     /**
@@ -29,23 +27,17 @@ class DownloadController extends Controller
      */
     public function store(StoreDownloadRequest $request)
     {
-        //
-    }
+        $data = $request->validated();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Download $download)
-    {
-        //
-    }
+        $file = $request->file('file');
+        $filename = date('YmdHis') . '.' . $file->getClientOriginalExtension();
+        $file->move(Download::FILE_PATH, $filename);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Download $download)
-    {
-        //
+        $download = Download::make($data);
+        $download->file = $filename;
+        $download->saveOrFail();
+
+        return redirect()->route('download.index')->with(['success' => 'Berhasil menambahkan file download baru.']);
     }
 
     /**
@@ -53,7 +45,20 @@ class DownloadController extends Controller
      */
     public function update(UpdateDownloadRequest $request, Download $download)
     {
-        //
+        $data = $request->validated();
+
+        $filename = null;
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = Date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $file->move(Download::FILE_PATH, $filename);
+        }
+
+        $download->fill($data);
+        if ($filename != null) $download->file = $filename;
+        $download->saveOrFail();
+
+        return redirect()->route('download.index')->with(['success' => 'Berhasil mengupdate file.']);        
     }
 
     /**
@@ -61,6 +66,16 @@ class DownloadController extends Controller
      */
     public function destroy(Download $download)
     {
-        //
+        $download->delete();
+
+        return redirect()->route('download.index')->with(['success' => 'Berhasil menghapus file download.']);
+    }
+
+    /**
+     * Downloading file from database.
+     */ 
+    public function downloadFile(Download $download)
+    {
+        return response()->download(Download::FILE_PATH . $download->file);
     }
 }

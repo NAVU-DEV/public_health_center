@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Download extends Model
 {
+    const FILE_PATH = 'assets/file/';
+
+    public $table = 'download';
+
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'file'
+    ];
 }

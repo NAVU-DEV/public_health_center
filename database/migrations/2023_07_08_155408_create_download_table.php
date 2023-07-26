@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('downloads', function (Blueprint $table) {
+        Schema::create('download', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('buku_tamu_id');
+            $table->char('title', 75);
+            $table->char('file', 100);
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('downloads');
+        Schema::dropIfExists('download');
     }
 };
