@@ -16,14 +16,14 @@
                         <div class="swiper-slide">
                             <article>
                                 <div class="card shadow-lg">
-                                    <figure class="card-img-top overlay overlay-1"><a href="#"> <img src="{{ URL::asset('assets/img/news/' . $berita->thumbnail) }}" alt="" /></a>
+                                    <figure class="card-img-top overlay overlay-1"><a href="{{ route('site.baca-berita', $berita) }}"> <img src="{{ URL::asset('assets/img/news/' . $berita->thumbnail) }}" alt="" /></a>
                                         <figcaption>
                                             <h5 class="from-top mb-0">Read More</h5>
                                         </figcaption>
                                     </figure>
                                     <div class="card-body p-6">
                                         <div class="post-header">
-                                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="#">{{ $berita->title }}</a></h2>
+                                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="{{ route('site.baca-berita', $berita) }}">{{ $berita->title }}</a></h2>
                                         </div>
                                         <!-- /.post-header -->
                                         <div class="post-footer">

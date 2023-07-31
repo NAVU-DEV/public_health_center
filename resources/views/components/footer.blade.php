@@ -3,7 +3,7 @@
         <div class="row gy-6 gy-lg-0">
             <div class="col-md-4 col-lg-3">
                 <div class="widget">
-                    <img class="mb-4" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" />
+                    <h2 class="text-white">Selalu Sehat</h2>
                     <p class="mb-4">© 2023 Puskesmas Selalu Sehat. <br class="d-none d-lg-block" />All rights reserved.</p>
                     <nav class="nav social social-white">
                         <a href="#"><i class="uil uil-twitter"></i></a>
@@ -12,9 +12,7 @@
                         <a href="#"><i class="uil uil-instagram"></i></a>
                         <a href="#"><i class="uil uil-youtube"></i></a>
                     </nav>
-                    <!-- /.social -->
                 </div>
-                <!-- /.widget -->
             </div>
             <!-- /column -->
             <div class="col-md-4 col-lg-3">
@@ -31,10 +29,10 @@
                     <h4 class="widget-title text-white mb-3">Learn More</h4>
                     <ul class="list-unstyled  mb-0">
                         <li><a href="#">Back To Top</a></li>
-                        <li><a href="#ourservices">Our Services</a></li>
-                        <li><a href="#aboutus">About</a></li>
-                        <li><a href="#testimonies">Testimonial</a></li>
-                        <li><a href="#contactus">Contact</a></li>
+                        <li><a href="{{ route('site.index', ['#ourservices']) }}">Our Services</a></li>
+                        <li><a href="{{ route('site.index', ['#aboutus']) }}">About</a></li>
+                        <li><a href="{{ route('site.pusat-file') }}">Files</a></li>
+                        <li><a href="{{ route('site.index', ['#contactus']) }}">Contact</a></li>
                     </ul>
                 </div>
                 <!-- /.widget -->

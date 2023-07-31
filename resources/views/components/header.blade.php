@@ -23,7 +23,7 @@
                             <a class="nav-link" href="#aboutus">About</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#testimonies">Testimonial</a>
+                            <a class="nav-link" href="{{ route('site.pusat-file') }}">Files</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#contactus">Contact</a>

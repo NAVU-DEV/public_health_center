@@ -52,9 +52,11 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                @include('components.pagination', [
-                'data' => $semua_berita
-                ])
+                @if($semua_berita->lastPage() > 1)  
+                    @include('components.pagination', [
+                        'data' => $semua_berita
+                    ])
+                @endif
             </div>
         </div>
     </div>
